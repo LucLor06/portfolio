@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Hello{% endblock title %}
+
+{% block header %}
+<h1>{{ project.name }}</h1>
+{% endblock header %}
+
+{% block content %}
+<p class="text--secondary">Started {{ project.start_date|date:"SHORT_DATE_FORMAT" }}{% if project.stop_date %} | Stopped {{ project.stop_date }}{% endif %}</p>
+{% include project.description_template %}
+<p><b>Frameworks/Libraries used</b></p>
+<div class="icons">
+    {% for library_framework in project.libraries_frameworks.all %}
+    <a class="icon" href="{{ library_framework.get_absolute_url }}">
+        <img src="{{ library_framework.icon }}">
+    </a>
+    {% endfor %}
+</div>
+{% endblock content %}

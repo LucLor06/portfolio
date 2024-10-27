@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(fonts/Roboto.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(fonts/Montserrat.ttf);
+}
+
+h1, h2, h3, h4, h5, p, a, li, sub, input, button, label {
+    text-align: center;
+    color: $color-text;
+    margin: .5rem;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Roboto';
+}
+
+h1 {
+    font-size: $font-size-lg;
+}
+
+p, a, li, sub, input, button, label {
+    text-align: left;
+    font-family: 'Montserrat';
+}
+
+p {
+    font-size: $font-size-sm;
+
+    a {
+        margin: 0;
+        text-decoration: none;
+    }
+}
+
+.text--secondary {
+    text-align: center;
+    font-size: $font-size-sm;
+    margin: 1rem;
+    opacity: 0.5;
+
+    & + p {
+        margin-top: 1.5rem;
+    }
+}
+
+.text--center {
+    text-align: center;
+}
+
+.text--green {
+    color: #086444;
+}
+
+.text--python {
+    background: linear-gradient(to right, #fcec68 0%, #fcec68 50%, #4884b4 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.text--javascript {
+    color: #f8e41c;
+}
+
+svg {
+    path {
+        opacity: 0.5;
+        fill: $color-text;
+        transition: opacity 500ms;
+    }
+
+    &:hover path {
+        opacity: 1;
+    }
+}
