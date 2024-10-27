@@ -1,0 +1,28 @@
+<label class="nav__toggle">
+    <svg class="nav__toggle--open" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+    <svg class="nav__toggle--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+    <input id="nav__toggle--input" type="checkbox">
+</label>
+<nav>
+    <p class="text--center"><b>Projects</b></p>
+    {% for project in projects %}
+    <a href="{{ project.get_absolute_url }}">
+        <img src="{{ project.icon }}">
+        <p>{{ project.name }}</p>
+    </a>
+    {% endfor %}
+    <p class="text--center"><b>Languages</b></p>
+    {% for language in languages %}
+    <a href="{{ language.get_absolute_url }}">
+        <img src="{{ language.icon }}">
+        <p>{{ language.name }}</p>
+    </a>
+    {% endfor %}
+    <p class="text--center"><b>Libraries/Frameworks</b></p>
+    {% for library_framework in libraries_frameworks %}
+    <a href="{{ library_framework.get_absolute_url }}">
+        <img src="{{ library_framework.icon }}">
+        <p>{{ library_framework.name }}</p>
+    </a>
+    {% endfor %}
+</nav>

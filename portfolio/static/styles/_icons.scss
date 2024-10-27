@@ -1,0 +1,25 @@
+.icons {
+    display: flex;
+    flex-flow: row wrap;
+    gap: .5rem;
+}
+
+.icon {
+    display: block;
+    padding: .25rem;
+    margin: 0;
+    border-radius: .5rem;
+    width: $font-size-lg;
+    height: $font-size-lg;
+    transition: transform 500ms, background-color 500ms;
+
+    img {
+        width: 100%;
+    }
+
+    &:hover {
+        transition: transform 250ms, background-color 250ms;
+        transform: scale(1.1);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}

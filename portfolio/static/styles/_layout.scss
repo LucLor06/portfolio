@@ -1,0 +1,27 @@
+html {
+    min-height: 100%;
+    width: 100%;
+    background: $color-base;
+    display: flex;
+}
+
+body {
+    height: 100vh;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: clamp(320px, 60%, 1200px);
+    margin-inline: auto;
+}
+
+.particles-js-canvas-el {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    transition: filter 1s;
+}
