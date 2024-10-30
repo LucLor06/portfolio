@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Hello{% endblock title %}
+{% block embeds %}
+<meta property="og:title" content="Lucas Lorenz | Library/Framework | {{ library_framework.name }}">
+<meta property="og:image" content="{{ library_framework.icon }}">
+{% endblock embeds %}
+
+{% block title %}Lucas Lorenz | {{ library_framework.name }}{% endblock title %}
 
 {% block header %}
 <h1>{{ library_framework.name }}<img src="{{ library_framework.icon }}"></h1>
