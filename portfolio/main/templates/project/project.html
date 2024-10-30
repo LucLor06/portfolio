@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Hello{% endblock title %}
+{% block embeds %}
+<meta property="og:title" content="Lucas Lorenz | Project | {{ project.name }}">
+<meta property="og:image" content="{{ project.icon }}">
+{% endblock embeds %}
+
+{% block title %}Lucas Lorenz | {{ project.name }}{% endblock title %}
 
 {% block header %}
 <h1>{{ project.name }}<img src="{{ project.icon }}"></h1>
