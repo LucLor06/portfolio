@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Hello{% endblock title %}
+
+{% block header %}
+<h1>{{ language.name }}<img src="{{ language.icon }}"></h1>
+{% endblock header %}
+
+{% block content %}
+<p class="text--secondary text--center">{{ language.experience }} years of experience</p>
+{% include language.description_template %}
+{% if language.libraries_frameworks.exists %}
+<p><b>Used by these libraries/frameworks</b></p>
+<div class="icons">
+    {% for library_framework in language.libraries_frameworks.all %}
+    {% include 'partials/item-icon.html' with item=library_framework %}
+    {% endfor %}
+</div>
+{% endif %}
+{% if language.projects.exists %}
+<p><b>Used in these projects</b></p>
+<div class="icons">
+    {% for project in language.projects %}
+    {% include 'partials/item-icon.html' with item=project %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock content %}

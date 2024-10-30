@@ -51,6 +51,7 @@ nav {
 
     a {
         width: 80%;
+        cursor: pointer;
         margin-inline: auto;
         text-decoration: none;
         user-select: none;
@@ -76,4 +77,8 @@ nav {
             background-color: rgba(255, 255, 255, 0.1);
         }
     }
+}
+
+.nav__header {
+    margin-block: 2rem;
 }

@@ -16,18 +16,21 @@ class Home(NavigationContextMixin, TemplateView):
 
 class LibraryFrameworkDetail(NavigationContextMixin, DetailView):
     model = LibraryFramework
-    template_name = 'library_framework/library_framework.html'
+    template_name = 'library_framework/library-framework.html'
+    slug_field = 'slug'
     context_object_name = 'library_framework'
     
     
 class LanguageDetail(NavigationContextMixin, DetailView):
     model = Language
     template_name = 'language/language.html'
+    slug_field = 'slug'
     context_object_name = 'language'
     
     
 class ProjectDetail(NavigationContextMixin, DetailView):
     model = Project
     template_name = 'project/project.html'
+    slug_field = 'slug'
     context_object_name = 'project'
     
