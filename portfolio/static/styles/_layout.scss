@@ -6,12 +6,17 @@ html {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-block: 1rem;
+}
+
+#content {
+    width: 100%;
 }
 
 main {

@@ -20,6 +20,11 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     font-size: $font-size-lg;
+
+    img {
+        position: absolute;
+        width: $font-size-md;
+    }
 }
 
 p, a, li, sub, input, button, label {
@@ -32,19 +37,22 @@ p {
 
     a {
         margin: 0;
-        text-decoration: none;
+    }
+
+    & + p {
+        margin-top: 1rem;
     }
 }
 
+a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .text--secondary {
-    text-align: center;
     font-size: $font-size-sm;
     margin: 1rem;
     opacity: 0.5;
-
-    & + p {
-        margin-top: 1.5rem;
-    }
 }
 
 .text--center {
@@ -65,6 +73,7 @@ p {
 
 .text--javascript {
     color: #f8e41c;
+    text-decoration: none;
 }
 
 svg {
@@ -76,5 +85,30 @@ svg {
 
     &:hover path {
         opacity: 1;
+    }
+}
+
+.tooltip {
+    width: max-content;
+    margin: 5% auto;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    font-size: $font-size-sm;
+    background-color: rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 250ms 0ms;
+    padding: .25rem .5rem;
+    border-radius: .5rem;
+}
+
+*:has(> .tooltip) { 
+    position: relative;
+    
+    &:hover > .tooltip, &:focus-visible > .tooltip {
+        opacity: 1;
+        transition: opacity 250ms 250ms;
     }
 }

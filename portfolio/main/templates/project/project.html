@@ -3,18 +3,19 @@
 {% block title %}Hello{% endblock title %}
 
 {% block header %}
-<h1>{{ project.name }}</h1>
+<h1>{{ project.name }}<img src="{{ project.icon }}"></h1>
 {% endblock header %}
 
 {% block content %}
-<p class="text--secondary">Started {{ project.start_date|date:"SHORT_DATE_FORMAT" }}{% if project.stop_date %} | Stopped {{ project.stop_date }}{% endif %}</p>
+<p class="text--secondary text--center">Started {{ project.start_date }}{% if project.stop_date %} | Stopped {{ project.stop_date }}{% endif %}</p>
 {% include project.description_template %}
-<p><b>Frameworks/Libraries used</b></p>
+<p class="text--secondary"><a target="_blank" href="{{ project.url }}">Visit {{ project.name }}</a>{% if project.github_url %} | <a target="_blank" href="{{ project.github_url }}">View on GitHub</a>{% endif %}</p>
+{% if project.libraries_frameworks.exists %}
+<p><b>Frameworks/Libraries used in this project</b></p>
 <div class="icons">
     {% for library_framework in project.libraries_frameworks.all %}
-    <a class="icon" href="{{ library_framework.get_absolute_url }}">
-        <img src="{{ library_framework.icon }}">
-    </a>
+    {% include 'partials/item-icon.html' with item=library_framework %} 
     {% endfor %}
 </div>
+{% endif %}
 {% endblock content %}

@@ -1,0 +1,13 @@
+.htmx-swapping {
+    opacity: 0;
+    transform: translateY(2rem);
+}
+
+.htmx-settling {
+    opacity: 0;
+    transform: translateY(-2rem);
+}
+
+#content {
+    transition: transform 500ms, opacity 500ms;  
+}
