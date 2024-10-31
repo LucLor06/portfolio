@@ -16,25 +16,29 @@ class User(AbstractUser):
 
 class AbstractModel(models.Model):
     name = models.CharField(max_length=64)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse(class_to_camel_case(self.__class__), kwargs={'slug': self.slug})
 
     @cached_property
     def icon(self):
-        return f'{STATIC_URL}icons/{self.name.lower().replace(" ", "_").replace(".", "_")}.png'
+        return f'{STATIC_URL}icons/{self.slug}.png'
 
     def description_template(self):
         folder = class_to_camel_case(self.__class__)
-        file = self.name.lower().replace(' ','-').replace('.', '-')
+        file = self.slug
         return f'{folder}/{file}.html'
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        abstract = True
 
 
 class AbstractSkill(AbstractModel):
