@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{% static 'logo.png' %}">
     {% block embeds %}
+    <meta property="og:image" content="{% static 'logo.png' %}">
     <meta property="og:title" content="Lucas Lorenz">
     <meta property="og:description" content="Aspiring web developer working mostly with Python and Javascript.">
     {% endblock embeds %}
@@ -27,7 +27,11 @@
         on htmx:historyRestore
             particlesJS.load('particles-js', '/static/scripts/particles.json')
         end
-    </script> 
+        on htmx:beforeSwap from document
+            document.body.scrollTo({top: 0, behavior: 'smooth'})
+            document.documentElement.scrollTo({top: 0, behavior: 'smooth'})
+        end
+    </script>
 </head>
 <body id="particles-js" hx-swap="outerHTML swap:500ms" hx-target="#content" hx-select="#content" hx-push-url="true">
     {% include 'navigation.html' %}

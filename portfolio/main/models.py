@@ -12,41 +12,41 @@ def class_to_camel_case(cls):
 
 class User(AbstractUser):
     ...
-    
+
 
 class AbstractModel(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField()
-    
+
     def get_absolute_url(self):
         return reverse(class_to_camel_case(self.__class__), kwargs={'slug': self.slug})
-    
+
     @cached_property
     def icon(self):
-        return f'{STATIC_URL}icons/{self.name.lower().replace(' ', '_').replace('.', '_')}.png'
-    
+        return f'{STATIC_URL}icons/{self.name.lower().replace(" ", "_").replace(".", "_")}.png'
+
     def description_template(self):
         folder = class_to_camel_case(self.__class__)
         file = self.name.lower().replace(' ','-').replace('.', '-')
         return f'{folder}/{file}.html'
-        
+
     def __str__(self):
         return self.name
-    
+
     class Meta:
         abstract = True
-        
+
 
 class AbstractSkill(AbstractModel):
     experience = models.FloatField()
 
     class Meta:
         abstract = True
-    
+
 
 class GeneralSkill(AbstractSkill):
     ...
-    
+
 
 class LibraryFramework(AbstractSkill):
     languages = models.ManyToManyField('Language', blank=True, related_name='libraries_frameworks')
