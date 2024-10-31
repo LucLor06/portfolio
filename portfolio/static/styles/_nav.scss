@@ -49,7 +49,7 @@ nav {
     transform: translateX(-100%);
     transition: transform 250ms;
 
-    a {
+    & > a {
         width: 80%;
         cursor: pointer;
         margin-inline: auto;

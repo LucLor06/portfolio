@@ -12,10 +12,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-block: 1rem;
 }
 
 #content {
+    padding-block: $font-size-lg;
     width: 100%;
 }
 
