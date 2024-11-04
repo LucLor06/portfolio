@@ -12,7 +12,7 @@
 {% endblock header %}
 
 {% block content %}
-<p class="text--secondary text--center">{{ language.experience }} years of experience</p>
+<p class="text--secondary text--center">Began learning on {{ language.began_learning }} ({{ language.years_of_experience }} years)</p>
 {% include language.description_template %}
 {% if language.libraries_frameworks.exists %}
 <p><b>Used by these libraries/frameworks</b></p>

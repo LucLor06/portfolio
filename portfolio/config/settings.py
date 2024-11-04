@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = DJANGO_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['www.lucaslorenz.com']
+ALLOWED_HOSTS = ['www.lucaslorenz.com', '127.0.0.1']
 
 AUTH_USER_MODEL = 'main.User'
 

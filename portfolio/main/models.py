@@ -5,8 +5,9 @@ from config.settings import STATIC_URL
 from django.utils.functional import cached_property
 from django.urls import reverse
 from django.utils.text import slugify
+from datetime import datetime
 
-def class_to_camel_case(cls):
+def class_to_camel_case(cls) -> str:
    return '_'.join([word.lower() for word in re.findall(r'[A-Z][a-z]*', cls.__name__)])
 
 
@@ -21,28 +22,35 @@ class AbstractModel(models.Model):
     class Meta:
         abstract = True
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         return reverse(class_to_camel_case(self.__class__), kwargs={'slug': self.slug})
 
     @cached_property
-    def icon(self):
+    def icon(self) -> str:
         return f'{STATIC_URL}icons/{self.slug}.png'
 
-    def description_template(self):
+    def description_template(self) -> str:
         folder = class_to_camel_case(self.__class__)
         file = self.slug
         return f'{folder}/{file}.html'
 
 
 class AbstractSkill(AbstractModel):
-    experience = models.FloatField()
+    began_learning = models.DateField()
+    
+    def years_of_experience(self) -> float:
+        now = datetime.today().date()
+        print(now)
+        print(self.began_learning)
+        years = round(((now - self.began_learning).days) / 365.25, 2)
+        return years
 
     class Meta:
         abstract = True
