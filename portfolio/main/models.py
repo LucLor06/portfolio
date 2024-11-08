@@ -7,8 +7,9 @@ from django.urls import reverse
 from django.utils.text import slugify
 from datetime import datetime
 
-def class_to_camel_case(cls) -> str:
-   return '_'.join([word.lower() for word in re.findall(r'[A-Z][a-z]*', cls.__name__)])
+def class_to_camel_case(cls, use_hyphens=False) -> str:
+   spacer = '_' if not use_hyphens else '-'
+   return spacer.join([word.lower() for word in re.findall(r'[A-Z][a-z]*', cls.__name__)])
 
 
 class User(AbstractUser):
@@ -30,7 +31,7 @@ class AbstractModel(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self) -> str:
-        return reverse(class_to_camel_case(self.__class__), kwargs={'slug': self.slug})
+        return reverse(class_to_camel_case(self.__class__, use_hyphens=True), kwargs={'slug': self.slug})
 
     @cached_property
     def icon(self) -> str:

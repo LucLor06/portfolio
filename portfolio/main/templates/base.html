@@ -28,12 +28,12 @@
             particlesJS.load('particles-js', '/static/scripts/particles.json')
         end
         on htmx:beforeSwap from document
-            document.body.scrollTo({top: 0, behavior: 'smooth'})
-            document.documentElement.scrollTo({top: 0, behavior: 'smooth'})
+            document.body.scrollTo({top: 0, behavior: "smooth"})
+            document.documentElement.scrollTo({top: 0, behavior: "smooth"})
         end
     </script>
 </head>
-<body id="particles-js" hx-swap="outerHTML swap:500ms" hx-target="#content" hx-select="#content" hx-push-url="true">
+<body id="particles-js" hx-swap="outerHTML swap:500ms" hx-target="#content" hx-select="#content" hx-push-url="true" hx-boost="true">
     {% include 'navigation.html' %}
     <div id="content">
         <header>{% block header %}{% endblock header %}</header>

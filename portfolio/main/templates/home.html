@@ -5,6 +5,6 @@
 {% endblock header %}
 
 {% block content %}
-<p class="text--secondary text--center">Senior at <a href="https://www.usf.edu/" target="_blank" class="text--green"><b>USF</b></a> studying Information Science | Aspiring web developer</p>
-<p class="text--center">Hey there. I'm Lucas (Luke), an aspiring web developer working mostly with <a class="text--clip-background text--python" hx-get="{% url 'language' 'python' %}"><b>python</b></a> and <a class="text--javascript" hx-get="{% url 'language' 'javascript' %}"><b>javascript</b></a></p>
+<p class="text--secondary text--center" hx-disinherit="hx-boost">Senior at <a href="https://www.usf.edu/" target="_blank" class="text--green"><b>USF</b></a> studying Information Science | Aspiring web developer</p>
+<p class="text--center">Hey there. I'm Lucas (Luke), an aspiring web developer working mostly with <a class="text--clip-background text--python" href="{% url 'language' 'python' %}"><b>python</b></a> and <a class="text--javascript" href="{% url 'language' 'javascript' %}"><b>javascript</b></a></p>
 {% endblock content %}
