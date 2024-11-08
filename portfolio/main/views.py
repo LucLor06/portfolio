@@ -7,22 +7,23 @@ class Home(TemplateView):
     template_name = 'home.html'
 
 
-class LibraryFrameworkDetail(DetailView):
+class ItemDetail(DetailView):
+    slug_field = 'slug'
+    
+    def get_context_object_name(self, obj):
+        return self.model.name_to_snake_case()
+    
+    def get_template_names(self):
+        return [f'{self.model.name_to_snake_case()}/{self.model.name_to_kebab_case()}.html']
+
+
+class LibraryFrameworkDetail(ItemDetail):
     model = LibraryFramework
-    template_name = 'library_framework/library-framework.html'
-    slug_field = 'slug'
-    context_object_name = 'library_framework'
 
 
-class LanguageDetail(DetailView):
+class LanguageDetail(ItemDetail):
     model = Language
-    template_name = 'language/language.html'
-    slug_field = 'slug'
-    context_object_name = 'language'
 
 
-class ProjectDetail(DetailView):
+class ProjectDetail(ItemDetail):
     model = Project
-    template_name = 'project/project.html'
-    slug_field = 'slug'
-    context_object_name = 'project'

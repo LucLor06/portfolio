@@ -7,10 +7,6 @@ from django.urls import reverse
 from django.utils.text import slugify
 from datetime import datetime
 
-def class_to_camel_case(cls, use_hyphens=False) -> str:
-   spacer = '_' if not use_hyphens else '-'
-   return spacer.join([word.lower() for word in re.findall(r'[A-Z][a-z]*', cls.__name__)])
-
 
 class User(AbstractUser):
     ...
@@ -31,16 +27,24 @@ class AbstractModel(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self) -> str:
-        return reverse(class_to_camel_case(self.__class__, use_hyphens=True), kwargs={'slug': self.slug})
+        return reverse(self.__class__.name_to_kebab_case(), kwargs={'slug': self.slug})
 
     @cached_property
     def icon(self) -> str:
         return f'{STATIC_URL}icons/{self.slug}.png'
 
     def description_template(self) -> str:
-        folder = class_to_camel_case(self.__class__)
+        folder = self.__class__.name_to_snake_case()
         file = self.slug
         return f'{folder}/{file}.html'
+    
+    @classmethod
+    def name_to_snake_case(cls):
+        return '_'.join([word.lower() for word in re.findall(r'[A-Z][a-z]*', cls.__name__)])
+
+    @classmethod
+    def name_to_kebab_case(cls):
+        return '-'.join([word.lower() for word in re.findall(r'[A-Z][a-z]*', cls.__name__)])
 
 
 class AbstractSkill(AbstractModel):
