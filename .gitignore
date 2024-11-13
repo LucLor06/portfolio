@@ -3,3 +3,7 @@ env
 portfolio/.env
 
 portfolio/static/CACHE
+
+**/__pycache__
+
+*.pyc

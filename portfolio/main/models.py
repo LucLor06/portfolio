@@ -48,6 +48,7 @@ class AbstractModel(models.Model):
 
 
 class AbstractSkill(AbstractModel):
+    learning = models.BooleanField(default=False)
     began_learning = models.DateField()
     
     def years_of_experience(self) -> float:
