@@ -47,9 +47,21 @@ class AbstractModel(models.Model):
         return '-'.join([word.lower() for word in re.findall(r'[A-Z][a-z]*', cls.__name__)])
 
 
+class AbstractSkillManager(models.Manager):
+    def proficient(self):
+        return self.filter(is_learning=False)
+    
+    def learning(self):
+        return self.filter(is_learning=True)
+
 class AbstractSkill(AbstractModel):
-    learning = models.BooleanField(default=False)
+    is_learning = models.BooleanField(default=False)
     began_learning = models.DateField()
+    
+    objects = AbstractSkillManager()
+    
+    class Meta:
+        abstract = True
     
     def years_of_experience(self) -> float:
         now = datetime.today().date()
@@ -57,9 +69,6 @@ class AbstractSkill(AbstractModel):
         print(self.began_learning)
         years = round(((now - self.began_learning).days) / 365.25, 2)
         return years
-
-    class Meta:
-        abstract = True
 
 
 class GeneralSkill(AbstractSkill):
