@@ -12,7 +12,7 @@
 {% endblock header %}
 
 {% block content %}
-<p class="text--secondary text--center">Began learning on {{ library_framework.began_learning }} ({{ library_framework.years_of_experience }} years)</p>
+<p class="text--secondary text--center">Began learning on {{ library_framework.began_learning }} ({{ library_framework.years_of_experience }} years){% if library_framework.is_learning %} | Currently learning{% endif %}</p>
 {% include library_framework.description_template %}
 <p><b>Languages</b></p>
 <div class="icons">

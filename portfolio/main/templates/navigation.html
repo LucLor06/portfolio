@@ -25,14 +25,14 @@ end">
     {% for language in languages %}
     <a href="{{ language.get_absolute_url }}">
         <img src="{{ language.icon }}">
-        <p>{{ language.name }}</p>
+        <p>{{ language.name }}{% if language.is_learning %} (learning){% endif %}</p>
     </a>
     {% endfor %}
     <p class="text--center nav__header"><b>Libraries/Frameworks</b></p>
     {% for library_framework in libraries_frameworks %}
     <a href="{{ library_framework.get_absolute_url }}">
         <img src="{{ library_framework.icon }}">
-        <p>{{ library_framework.name }}</p>
+        <p>{{ library_framework.name }}{% if library_framework.is_learning %} (learning){% endif %}</p>
     </a>
     {% endfor %}
 </nav>
