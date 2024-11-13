@@ -62,6 +62,7 @@ class AbstractSkill(AbstractModel):
     
     class Meta:
         abstract = True
+        ordering = ['is_learning', 'began_learning']
     
     def years_of_experience(self) -> float:
         now = datetime.today().date()
