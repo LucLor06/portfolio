@@ -1,0 +1,96 @@
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ website.name }}{% endblock title %}</title>
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{% static 'logo-128.png' %}">
+    {% block embeds %}
+    <meta property="og:title" content="{{ website.name }}">
+    <meta property="og:description" content="{{ website.description }}">
+    {% endblock embeds %}
+    <meta name="theme-color" content="{{ website.text_color }}">
+    <meta name="manifest" content='/static/manifest.json'>
+    <link rel="icon" type="image/x-icon" href="{% static 'logo.ico' %}">
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static '/styles/styles.scss' %}">
+    {% endcompress %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/2.0.4/htmx.min.js" integrity="sha512-2kIcAizYXhIn8TzUvqzEDZNuDZ+aW7yE/+f1HJHXFjQcGNfv1kqzJSTBRBSlOgp6B/KZsz1K0a3ZTqP9dnxioQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hyperscript/0.9.14/_hyperscript.min.js" integrity="sha512-l43sZzpnAddmYhJyfPrgv46XhJvA95gsA28/+eW4XZLSekQ8wlP68i9f22KGkRjY0HNiZrLc5MXGo4z/tM2QNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+</head>
+    <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+        {% include 'navigation.html' %}
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+        {% if messages %}
+        <div id="messages" class="messages" hx-swap-oob="outerHTML">
+            {% for message in messages %}
+            {% if 'modal' not in message.tags %}
+            <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                <p>{{ message }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="messages--modals">
+            {% for message in messages %}
+            {% if 'modal' in message.tags %}
+            <div class="modal__wrapper">
+                <div class="modal" _="install Modal">
+                    <div class="modal__content">
+                        <h3>{{ message.level_tag|title }}</h3>
+                        <p>{{ message }}</p>
+                    </div>
+                    <div class="modal__actions">
+                        <button _="
+                        on click
+                            add .hidden to the closest .modal__wrapper
+                        end">Done</button>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <footer>
+            <div class="footer__content">
+                <div>
+                    <h3>Navigation</h3>
+                </div>
+                <div>
+                    <h3>Contact Us</h3>
+                    <div class="website-contacts website-contacts--small">
+                        {% for website_contact in website_contacts %}
+                        <a class="website-contact-small" href="{% if website_contact.type == 'email' %}mailto:{{ website_contact.contact }}{% else %}tel:{{ website_contact.contact }}{% endif %}">
+                            {{ website_contact.svg|safe }}
+                            <span>{{ website_contact.contact }}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="website-socials">
+                    {% for website_social in website_socials %}
+                    <a class="website-social" href="{{ website_social.link }}">
+                        {{ website_social.svg|safe }}
+                    </a>
+                    {% endfor %}
+                </div>
+                <div>
+                    <p>© {% now "Y" %}</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
