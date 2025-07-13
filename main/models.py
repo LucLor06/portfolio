@@ -29,3 +29,9 @@ class ValidatedModelMixin(models.Model):
             self.full_clean()
         
         return super().save(*args, **kwargs)
+
+
+class Tag(AbstractNamedModel, ValidatedModelMixin):
+    @property
+    def css_class(self):
+        return f'tag--{self.slug}'
