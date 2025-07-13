@@ -66,3 +66,7 @@ class AbstractSkill(AbstractNamedModel, ValidatedModelMixin):
 
 class Language(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='languages')
+
+
+class Technology(AbstractSkill):
+    tags = models.ManyToManyField('main.Tag', blank=True, related_name='technologies')
