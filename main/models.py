@@ -62,3 +62,7 @@ class AbstractSkill(AbstractNamedModel, ValidatedModelMixin):
         if self.years_of_experience < 1:
             return '< 1'
         return str(round(self.years_of_experience, 1))
+    
+
+class Language(AbstractSkill):
+    tags = models.ManyToManyField('main.Tag', blank=True, related_name='languages')
