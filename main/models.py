@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
+from django.templatetags.static import static
+from django.utils.functional import cached_property
+from django.utils import timezone
+
 
 class User(AbstractUser):
     ...
@@ -35,3 +39,26 @@ class Tag(AbstractNamedModel, ValidatedModelMixin):
     @property
     def css_class(self):
         return f'tag--{self.slug}'
+    
+
+class AbstractSkill(AbstractNamedModel, ValidatedModelMixin):
+    began_learning = models.DateField(default=timezone.localdate)
+
+    class Meta:
+        abstract = True
+
+    @cached_property
+    def icon(self):
+        return static(f'{self.__class__.static_dir}/icons/{self.slug}.svg')
+    
+    @cached_property
+    def years_of_experience(self):
+        today = timezone.localdate()
+        delta = today - self.began_learning
+        return delta.days/365.25
+    
+    @cached_property
+    def display_years_of_experience(self):
+        if self.years_of_experience < 1:
+            return '< 1'
+        return str(round(self.years_of_experience, 1))
