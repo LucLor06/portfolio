@@ -18,3 +18,14 @@ class AbstractNamedModel(models.Model):
             self.slug = slugify(self.name)
 
         return super().save(*args, **kwargs)
+    
+
+class ValidatedModelMixin(models.Model):
+    class Meta:
+        abstract = True
+
+    def save(self, *args, skip_validation=False, **kwargs):
+        if not skip_validation:
+            self.full_clean()
+        
+        return super().save(*args, **kwargs)
