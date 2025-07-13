@@ -70,3 +70,7 @@ class Language(AbstractSkill):
 
 class Technology(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='technologies')
+
+
+class Tool(AbstractSkill):
+    tags = models.ManyToManyField('main.Tag', blank=True, related_name='tools')
