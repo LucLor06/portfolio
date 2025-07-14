@@ -74,3 +74,7 @@ class Technology(AbstractSkill):
 
 class Tool(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='tools')
+
+
+class Skill(AbstractSkill):
+    tags = models.ManyToManyField('main.Tag', blank=True, related_name='skills')
