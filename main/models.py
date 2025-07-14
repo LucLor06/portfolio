@@ -47,10 +47,6 @@ class AbstractSkill(AbstractNamedModel, ValidatedModelMixin):
 
     class Meta:
         abstract = True
-
-    @cached_property
-    def icon(self):
-        return static(f'{self.__class__.static_dir}/icons/{self.slug}.svg')
     
     @cached_property
     def years_of_experience(self):
