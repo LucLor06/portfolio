@@ -67,14 +67,22 @@ class AbstractSkill(AbstractNamedModel, ValidatedModelMixin):
 class Language(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='languages')
 
+    static_dir = 'languages'
+
 
 class Technology(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='technologies')
+
+    static_dir = 'technologies'
 
 
 class Tool(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='tools')
 
+    static_dir = 'tools'
+
 
 class Skill(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='skills')
+
+    static_dir = 'skills'
