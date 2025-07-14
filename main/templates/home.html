@@ -1,4 +1,42 @@
 {% extends 'base.html' %}
-<header class="hero">
-    <div class="hero-content"></div>
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<header class="hero home-hero" id="hero">
+    <div class="hero-content">
+        <h1>Hello There</h1>
+        <p>I'm <b>Lucas Lorenz</b>, a web developer with a focus primarily on Python and Javascript.</p>
+    </div>
+    <div class="hero-spacer"></div>
 </header>
+<hr>
+<section class="section--cols-2" id="about-me">
+    <div>
+        <h2>About Me</h2>
+        <p>{% lorem 1 %}</p>
+    </div>
+    <div>
+        <img src="img" alt="An image of something interesting">
+    </div>
+</section>
+<hr>
+<section>
+    <h2>Languages</h2>
+</section>
+<hr>
+<section>
+    <h2>Technologies</h2>
+</section>
+<hr>
+<section>
+    <h2>Tools</h2>
+</section>
+<hr>
+<section>
+    <h2>Skills</h2>
+</section>
+{% endblock content %}
