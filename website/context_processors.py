@@ -1,4 +1,4 @@
-from .models import WebsiteSocial, WebsiteContact, WebsiteConfig, WebsiteFAQ
+from .models import WebsiteSocial, WebsiteContact, WebsiteConfig
 from django.core.cache import cache
 
 def website(request):
