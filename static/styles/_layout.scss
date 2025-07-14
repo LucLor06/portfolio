@@ -73,7 +73,7 @@ img {
     object-fit: cover;
 }
 
-hr.section-divider {
+hr {
     width: clamp(340px, 70%, 1200px);
     margin-inline: auto;
     border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent 90%);

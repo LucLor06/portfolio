@@ -87,16 +87,6 @@ a.button {
     text-decoration: none;
 }
 
-hr {
-    width: clamp(300px, 50%, 400px);
-    border: .25vh solid var(--color-text);
-    outline: none;
-
-    &.hr--sm {
-        width: clamp(200px, 25%, 300px)
-    }
-}
-
 ul, ol {
     display: flex;
     flex-direction: column;
