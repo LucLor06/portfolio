@@ -1,0 +1,21 @@
+$color-error: red;
+$color-success: green;
+
+:root {
+    --layout-content-gap: 2rem;
+    --color-primary: #0A0A0A;
+    --color-secondary: #a84cca;
+    --color-text: #F5F5F5;
+    --color-error: #e63946;
+    --color-warning: #f4d35e;
+    --color-success: #52b788;
+    --color-text-light: color-mix(in srgb, var(--color-text) 75%, var(--color-primary) 25%);
+
+    --font-size-xl: clamp(40px, 4.5vw, 60px); 
+    --font-size-lg: clamp(32px, 3.5vw, 48px); 
+    --font-size-md: clamp(20px, 2.25vw, 28px); 
+    --font-size-sm: clamp(14px, 1.25vw, 18px); 
+    --font-size-xs: clamp(12px, 1vw, 16px); 
+    --font-size-xxs: clamp(10px, .85vw, 14px);
+
+}
