@@ -43,7 +43,7 @@ class Tag(AbstractNamedModel, ValidatedModelMixin):
 
 class AbstractSkill(AbstractNamedModel, ValidatedModelMixin):
     began_learning = models.DateField(default=timezone.localdate)
-    svg = models.TextField()
+    icon = models.TextField()
 
     class Meta:
         abstract = True
