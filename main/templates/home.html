@@ -24,19 +24,42 @@ Home
     </div>
 </section>
 <hr>
-<section>
-    <h2>Languages</h2>
-</section>
-<hr>
-<section>
-    <h2>Technologies</h2>
-</section>
-<hr>
-<section>
-    <h2>Tools</h2>
-</section>
-<hr>
-<section>
-    <h2>Skills</h2>
+<section class="home-skills">
+    <div class="home-skills-row">
+        <div>
+            <h2>Languages</h2>
+            <div class="skills">
+                {% for language in languages %}
+                {% include 'partials/skill.html' with skill=language %}
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>Technologies</h2>
+            <div class="skills">
+                {% for technology in technologies %}
+                {% include 'partials/skill.html' with skill=technology %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="home-skills-row">
+        <div>
+            <h2>Tools</h2>
+            <div class="skills">
+                {% for tool in tools %}
+                {% include 'partials/skill-item.html' with skill=tool %}
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>Skills</h2>
+            <div class="skills">
+                {% for skill in skills %}
+                {% include 'partials/skill-item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock content %}
