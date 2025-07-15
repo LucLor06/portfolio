@@ -83,3 +83,10 @@ class Skill(AbstractSkill):
     tags = models.ManyToManyField('main.Tag', blank=True, related_name='skills')
 
     static_dir = 'skills'
+
+
+class Project(AbstractNamedModel, ValidatedModelMixin):
+    description = models.TextField()
+    icon = models.TextField()
+    url = models.URLField(blank=True, null=True)
+    github_url = models.URLField(blank=True, null=True)
