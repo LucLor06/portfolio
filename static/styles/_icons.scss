@@ -1,0 +1,9 @@
+svg, svg path {
+    transition: fill 250ms, filter 250ms, scale 250ms;
+    fill: var(--color-text);
+}
+
+svg {
+    width: var(--font-size-xxl);
+    height: var(--font-size-xxl);
+}

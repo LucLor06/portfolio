@@ -15,3 +15,27 @@
         flex: 1;
     }
 }
+
+.home-skills {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    
+    .home-skills-row {
+        flex: 1;
+        min-width: 300px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        & > div {
+            width: clamp(340px, calc(50% - 1rem), 1200px);
+
+            h2 {
+                text-align: center;
+            }
+        }
+    }
+}

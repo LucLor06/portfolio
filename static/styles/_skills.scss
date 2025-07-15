@@ -1,0 +1,26 @@
+.skills {
+    display: flex;
+    flex-direction: row wrap;
+    margin-block: 1rem;
+    gap: .5rem;
+    justify-content: center;
+
+    .skill {
+        width: var(--font-size-xxl);
+        height: var(--font-size-xxl);
+        transition: scale 250ms;
+
+        h2 {
+            text-align: center;
+        }
+
+        svg, img {
+            width: 100%;
+            display: block;
+        }
+
+        &:hover {
+            scale: 1.1;
+        }
+    }
+}

@@ -97,13 +97,6 @@ ul, ol {
     }
 }
 
-svg, svg path {
-    transition: fill 500ms;
-    width: var(--font-size-sm);
-    height: var(--font-size-sm);
-    fill: var(--color-text);
-}
-
 span {
     margin: 0;
 }
@@ -169,7 +162,6 @@ span {
     transition: opacity 250ms 0ms;
     padding: .25rem .5rem;
     border-radius: .5rem;
-    color: var(--color-primary);
 
     &.tooltip--bottom {
         bottom: unset;
@@ -179,10 +171,11 @@ span {
 
 .tooltip-container {
     position: relative;
+    width: fit-content;
 
     &:hover > .tooltip, &:focus-visible > .tooltip, &:focus-visible > .tooltip {
         opacity: 1;
-        transition: opacity 250ms 125ms;
+        transition: opacity 125ms 0ms;
     }
 }
 
