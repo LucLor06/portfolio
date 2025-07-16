@@ -17,6 +17,9 @@ class AbstractNamedModel(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return self.name
+
     def save(self, *args, **kwargs):
         if slugify(self.name) != self.slug:
             self.slug = slugify(self.name)
