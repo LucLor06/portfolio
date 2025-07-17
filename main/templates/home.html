@@ -62,4 +62,13 @@ Home
         </div>
     </div>
 </section>
+<hr>
+<section>
+    <h2>Projects</h2>
+    <div class="cards">
+        {% for project in projects %}
+        {% include 'partials/project-card.html' %}
+        {% endfor %}
+    </div>
+</section>
 {% endblock content %}
