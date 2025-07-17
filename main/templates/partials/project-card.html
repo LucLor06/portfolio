@@ -1,0 +1,11 @@
+<a class="card" href="{{ project.url }}">
+    <div class="card__header">
+        {{ project.icon|safe }}
+        <h3>{{ project.name }}</h3>
+    </div>
+    <hr>
+    <p>{{ project.description }}</p>
+    <!-- {% if project.github_url %}
+    <a href="{{ project.github_url }}">View on Github</a>
+    {% endif %} -->
+</a>
