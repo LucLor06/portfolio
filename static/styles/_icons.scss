@@ -1,13 +1,3 @@
-svg {
+svg, svg * {
     transition: fill 250ms, filter 250ms, scale 250ms;
-    filter: grayscale(75%);
-}
-
-svg {
-    width: var(--font-size-xxl);
-    height: var(--font-size-xxl);
-
-    &:hover {
-        filter: grayscale(0%);
-    }
 }
