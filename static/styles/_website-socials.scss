@@ -1,0 +1,24 @@
+.website-socials {
+    display: flex;
+    gap: .25rem;
+
+    .website-social {
+        width: var(--font-size-lg);
+        height: var(--font-size-lg);
+        transition: scale 250ms, opacity 250ms;
+        margin: 0;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover, &:focus-visible, &:hover, &:focus-visible {
+            scale: 1.1;
+
+            & svg path {
+                fill: var(--color-secondary);
+            }
+        }
+    }
+}
