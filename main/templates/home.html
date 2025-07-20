@@ -24,7 +24,7 @@ Home
     </div>
 </section>
 <hr>
-<section class="home-skills">
+<section class="home-skills" id="skills">
     <div class="home-skills-row">
         <div>
             <h2>Languages</h2>
@@ -48,22 +48,22 @@ Home
             <h2>Tools</h2>
             <div class="skills">
                 {% for tool in tools %}
-                {% include 'partials/skill-item.html' with skill=tool %}
+                {% include 'partials/skill.html' with skill=tool %}
                 {% endfor %}
             </div>
         </div>
         <div>
             <h2>Skills</h2>
-            <div class="skills">
+            <div class="skills skills--skills">
                 {% for skill in skills %}
-                {% include 'partials/skill-item.html' %}
+                {% include 'partials/skill.html' %}
                 {% endfor %}
             </div>
         </div>
     </div>
 </section>
 <hr>
-<section>
+<section class="home-projects" id="projects">
     <h2>Projects</h2>
     <div class="cards">
         {% for project in projects %}
