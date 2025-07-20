@@ -150,22 +150,30 @@ span {
 .tooltip {
     z-index: 2;
     width: max-content;
-    margin: 5% auto;
+    margin: 10% auto;
     position: absolute;
     left: 50%;
     bottom: 100%;
     transform: translateX(-50%);
-    font-size: var(--font-size-xs);
     background-color: rgba(0, 0, 0, 0.9);
     pointer-events: none;
     opacity: 0;
     transition: opacity 250ms 0ms;
-    padding: .25rem .5rem;
+    padding: .33rem .66rem;
     border-radius: .5rem;
+    border: solid 1px var(--color-text);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 
     &.tooltip--bottom {
         bottom: unset;
         top: 100%;
+    }
+
+    p {
+        font-size: var(--font-size-xs);
+        margin: 0;
     }
 }
 

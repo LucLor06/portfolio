@@ -1,9 +1,13 @@
-svg, svg path {
+svg {
     transition: fill 250ms, filter 250ms, scale 250ms;
-    fill: var(--color-text);
+    filter: grayscale(75%);
 }
 
 svg {
     width: var(--font-size-xxl);
     height: var(--font-size-xxl);
+
+    &:hover {
+        filter: grayscale(0%);
+    }
 }
