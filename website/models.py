@@ -1,5 +1,33 @@
 from django.db import models
 from solo.models import SingletonModel
+from django.core.cache import cache
+
+
+class CacheAllManager(models.Manager):
+    def all(self, *args, **kwargs):
+        return cache.get_or_set(f'{self.model.all_cache_key()}', lambda: super(CacheAllManager, self).all(*args, **kwargs), None)
+
+
+class AbstractCacheAllModel(models.Model):
+    objects = CacheAllManager()
+
+    class Meta:
+        abstract = True
+
+    def save(self, *args, skip_all_cache_clear=False, **kwargs):
+        if not skip_all_cache_clear:
+            cache.delete(self.__class__.all_cache_key())
+        return super().save(*args, **kwargs)
+    
+    def delete(self, *args, skip_all_cache_clear=False, **kwargs):
+        if not skip_all_cache_clear:
+            cache.delete(self.__class__.all_cache_key())
+        return super().delete(*args, **kwargs)
+    
+    @classmethod
+    def all_cache_key(cls):
+        return f'{cls._meta.db_table}:all'
+    
 
 class WebsiteConfig(SingletonModel):
     name = models.CharField(max_length=64)
@@ -15,7 +43,7 @@ class WebsiteConfig(SingletonModel):
         verbose_name = 'configuration'
 
 
-class WebsiteContact(models.Model):
+class WebsiteContact(AbstractCacheAllModel):
     name = models.CharField(max_length=64)
     is_primary = models.BooleanField(default=False)
 
@@ -39,7 +67,7 @@ class WebsiteContact(models.Model):
         verbose_name_plural = 'contacts'
 
 
-class WebsiteSocial(models.Model):
+class WebsiteSocial(AbstractCacheAllModel):
     name = models.CharField(max_length=64)
     
     svg = models.TextField(
@@ -48,8 +76,6 @@ class WebsiteSocial(models.Model):
     link = models.URLField(
         help_text='The link to the actual social page.'
     )
-
-    _cache_key = 'website_socials'
 
     class Meta:
         verbose_name = 'social'
