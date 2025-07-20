@@ -1,4 +1,15 @@
 <div class="skill tooltip-container">
     {{ skill.icon|safe }}
-    <p class="tooltip">{{ skill.name }} ({{ skill.display_years_of_experience }} years){% if skill.tags.exists %}<div class="tags">{% for tag in skill.tags.all %}<div class="tag {{ tag.css_class }}">{{ tag.name }}</div>{% endfor %}</div>{% endif %}</p>
+    <div class="tooltip">
+        <p><b>{{ skill.name }}</b> ({{ skill.display_years_of_experience }} years)</p>
+        {% if skill.tags.exists %}
+        <div class="tags">
+            {% for tag in skill.tags.all %}
+            <div class="tag {{ tag.css_class }}">
+                <p>{{ tag.name }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
 </div>
