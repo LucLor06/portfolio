@@ -1,0 +1,39 @@
+.website-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &--small {
+        gap: .5rem;
+        margin-block: .5rem;
+    }
+}
+
+.website-contact {
+
+    .website-contact__header {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.website-contact-small {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin: 0;
+
+    svg {
+        width: var(--font-size-md);
+        height: var(--font-size-md);
+    }
+
+    span {
+        margin: 0;
+    }
+}
