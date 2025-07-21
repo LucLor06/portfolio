@@ -17,10 +17,10 @@ Home
 <section class="section--cols-2" id="about-me">
     <div>
         <h2>About Me</h2>
-        <p>{% lorem 1 %}</p>
+        <p>I was born and raised in South Florida before attending the <a href="https://www.usf.edu/">University of South Florida</a>, where I studied Information Science with a focus on web development. During college, I spent much of my free time diving deep into Python, which led me to become proficient in Django. Along the way, I developed a strong foundation in core web technologies like HTML, CSS, and JavaScript. Nearly three years later, I’ve built several full featured web apps with active users and frequent requests, and I now feel ready to enter the job market. Outside of tech, I enjoy cooking, playing a variety of instruments, and exploring new technologies.</p>
     </div>
     <div>
-        <img src="img" alt="An image of something interesting">
+        <img src="/static/sfl.jpg" alt="An image of South Florida">
     </div>
 </section>
 <hr>
@@ -65,6 +65,7 @@ Home
 <hr>
 <section class="home-projects" id="projects">
     <h2>Projects</h2>
+    <p>Below you will find projects that I'm happy with the production and quality of code. Some of these are available to view live and on Github. If you want to view some of my other public projects feel free to view my <a href="https://github.com/LucLor06">Github</a>.</p>
     <div class="cards">
         {% for project in projects %}
         {% include 'partials/project-card.html' %}
