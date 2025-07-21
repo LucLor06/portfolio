@@ -1,0 +1,28 @@
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        scale: 0.95;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    header, hr, section, .home-skills-row > div, .skill, .card, section > div {
+        animation: fade-in linear 1s forwards;
+        animation-timeline: view();
+        animation-range: entry 0px 20vh;  
+    }   
+}
+
+.fade {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.fade.out {
+    opacity: 0;
+}
