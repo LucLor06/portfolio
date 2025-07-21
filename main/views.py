@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from .models import Language, Technology, Tool, Skill, Project
 
 def home(request: HttpRequest):
@@ -11,3 +11,12 @@ def home(request: HttpRequest):
         'projects': Project.objects.all(),
     }
     return render(request, 'home.html', context)
+
+def robots_txt(request: HttpRequest):
+    return HttpResponse(
+        content_type='text/plain',
+        content="""
+        User-agent: *
+        Allow: /
+        """
+        )
