@@ -41,6 +41,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: var(--layout-content-gap);
+    padding-top: var(--layout-content-gap);
 }
 
 .particles-js-canvas-el {
@@ -96,7 +97,7 @@ hr {
     }
 
     img {
-        max-height: 300px;
+        max-height: 400px;
         object-fit: cover;
     }
 }

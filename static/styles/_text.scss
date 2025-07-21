@@ -62,7 +62,6 @@ p, div.links {
         margin: 0;
         display: inline;
         font-size: inherit;
-        color: var(--color-secondary);
     }
 }
 
@@ -81,6 +80,11 @@ b {
 
 a {
     display: block;
+    color: color-mix(in srgb, var(--color-secondary) 50%, var(--color-text) 50%);
+
+    &:hover {
+        color: var(--color-secondary);
+    }
 }
 
 a.button {
