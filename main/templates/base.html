@@ -78,7 +78,7 @@
                     <h3>Contact Me</h3>
                     <div class="website-contacts website-contacts--small">
                         {% for website_contact in website_contacts %}
-                        <a class="website-contact-small" href="{% if website_contact.type == 'email' %}mailto:{{ website_contact.contact }}{% else %}tel:{{ website_contact.contact }}{% endif %}">
+                        <a class="website-contact-small" href="{% if website_contact.type == 'email' %}mailto:{{ website_contact.contact }}{% else %}tel:{{ website_contact.contact }}{% endif %}" target="_blank">
                             {{ website_contact.svg|safe }}
                             <span>{{ website_contact.contact }}</span>
                         </a>
@@ -86,6 +86,8 @@
                     </div>
                 </div>
                 <div>
+                    <h3>Resources</h3>
+                    <a href="/static/resume.pdf" download>My Resume</a>
                 </div>
             </div>
             <div class="footer__bottom">

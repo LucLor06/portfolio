@@ -9,10 +9,10 @@ Home
 <header class="hero home-hero" id="hero">
     <div class="hero-content">
         <h1>Hello There</h1>
-        <p>I'm <b>Lucas Lorenz</b>, a web developer with a focus primarily on Python and Javascript.</p>
+        <p>I'm <b>Lucas Lorenz</b>, a full-stack developer with a focus primarily on Python and Javascript.</p>
         <div class="buttons">
             {% for social in website_socials %}
-            <a class="button" href="{{ social.link }}">
+            <a class="button" href="{{ social.link }}" target="_blank">
                 {{ social.svg|safe }}
                 <span>{{ social.name }}</span>
             </a>
@@ -29,7 +29,7 @@ Home
 <section class="section--cols-2" id="about-me">
     <div>
         <h2>About Me</h2>
-        <p>I was born and raised in South Florida before attending the <a href="https://www.usf.edu/">University of South Florida</a>, where I studied Information Science with a focus on web development. During college, I spent much of my free time diving deep into Python, which led me to become proficient in Django. Along the way, I developed a strong foundation in core web technologies like HTML, CSS, and JavaScript. Nearly three years later, I’ve built several full featured web apps with active users and frequent requests, and I now feel ready to enter the job market. Outside of tech, I enjoy cooking, playing a variety of instruments, and exploring new technologies.</p>
+        <p>I was born and raised in South Florida before attending the <a href="https://www.usf.edu/" target="_blank">University of South Florida</a>, where I studied Information Science with a focus on web development. During college, I spent much of my free time diving deep into Python, which led me to become proficient in Django. Along the way, I developed a strong foundation in core web technologies like HTML, CSS, and JavaScript. Nearly three years later, I’ve built several full featured web apps with active users and frequent requests, and I now feel ready to enter the job market. Outside of tech, I enjoy cooking, playing a variety of instruments, and exploring new technologies.</p>
     </div>
     <div>
         <img src="/static/sfl.jpg" alt="An image of South Florida">
@@ -77,7 +77,7 @@ Home
 <hr>
 <section class="home-projects" id="projects">
     <h2>Projects</h2>
-    <p>Below you will find projects that I'm happy with the production and quality of code. Some of these are available to view live and on Github. If you want to view some of my other public projects feel free to view my <a href="https://github.com/LucLor06">Github</a>.</p>
+    <p>Below you will find projects that I'm happy with the production and quality of code. Some of these are available to view live and on Github. If you want to view some of my other public projects feel free to view my <a href="https://github.com/LucLor06" target="_blank">Github</a>.</p>
     <div class="cards">
         {% for project in projects %}
         {% include 'partials/project-card.html' %}

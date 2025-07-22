@@ -6,10 +6,10 @@
     {% if project.url or project.github_url %}
     <div class="card__links">
         {% if project.url %}
-        <a href="{{ project.url }}">Visit</a>
+        <a href="{{ project.url }}" target="_blank">Visit</a>
         {% endif %}
         {% if project.github_url %}
-        <a href="{{ project.github_url }}">Github</a>
+        <a href="{{ project.github_url }}" target="_blank">Github</a>
         {% endif %}
     </div>
     {% endif %}
