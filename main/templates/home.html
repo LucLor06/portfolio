@@ -10,6 +10,14 @@ Home
     <div class="hero-content">
         <h1>Hello There</h1>
         <p>I'm <b>Lucas Lorenz</b>, a web developer with a focus primarily on Python and Javascript.</p>
+        <div class="buttons">
+            {% for social in website_socials %}
+            <a class="button" href="{{ social.link }}">
+                {{ social.svg|safe }}
+                <span>{{ social.name }}</span>
+            </a>
+            {% endfor %}
+        </div>
     </div>
     <div class="hero-spacer"></div>
 </header>
