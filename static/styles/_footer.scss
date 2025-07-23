@@ -5,7 +5,7 @@ footer {
     padding-block: var(--layout-content-gap);
     border-top: 2px solid color-mix(in srgb, var(--color-text) 10%, transparent 90%);
 
-    &:hover {
+    &:hover, &:focus-within {
         --color-text-light: var(--color-text);
     }
 
@@ -20,12 +20,12 @@ footer {
     a {
         text-decoration: none;
 
-        &:hover {
+        &:hover, &:focus-visible {
             color: var(--color-secondary);
         }
     }
     .website-contact-small {
-        &:hover span, &:hover svg path {
+        &:is(:hover, :focus-visible) span, &:is(:hover, :focus-visible) svg path {
             color: var(--color-secondary);
             fill: var(--color-secondary);
         }

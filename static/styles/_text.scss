@@ -185,7 +185,7 @@ span {
     position: relative;
     width: fit-content;
 
-    &:hover > .tooltip, &:focus-visible > .tooltip, &:focus-visible > .tooltip {
+    &:hover > .tooltip, &:focus-visible > .tooltip, &:active > .tooltip {
         opacity: 1;
         transition: opacity 125ms 0ms;
     }

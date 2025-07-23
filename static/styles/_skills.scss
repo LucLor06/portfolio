@@ -14,16 +14,16 @@
             text-align: center;
         }
 
+        &:is(:hover, :active, :focus-visible) :is(svg, img) {
+            filter: grayscale(0%);
+            scale: 1.1;
+        }
+
         svg, img {
             transition: fill 250ms, filter 250ms, scale 250ms;
             filter: grayscale(75%);
             width: var(--font-size-xxl);
             height: var(--font-size-xxl);
-
-            &:hover {
-                filter: grayscale(0%);
-                scale: 1.1;
-            }
         }
 
     }
