@@ -7,7 +7,7 @@ SECRET_KEY = environment_variables.DJANGO_SECRET_KEY
 
 DEBUG = environment_variables.DJANGO_DEBUG
 
-ALLOWED_HOSTS = ['127.0.0.1', environment_variables.PUBLIC_FACING_ADDRESS]
+ALLOWED_HOSTS = ['127.0.0.1', environment_variables.PUBLIC_FACING_ADDRESS, 'www.lucaslorenz.com', 'lucaslorenz.com']
 
 AUTH_USER_MODEL = 'main.User'
 
