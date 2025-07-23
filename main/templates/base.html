@@ -47,7 +47,7 @@
                     <h3>Contact Me</h3>
                     <div class="website-contacts website-contacts--small">
                         {% for website_contact in website_contacts %}
-                        <a class="website-contact-small" href="{% if website_contact.type == 'email' %}mailto:{{ website_contact.contact }}{% else %}tel:{{ website_contact.contact }}{% endif %}" target="_blank">
+                        <a class="website-contact-small" href="{% if website_contact.type == 'email' %}mailto:{{ website_contact.contact }}{% else %}tel:{{ website_contact.contact }}{% endif %}" target="_blank" rel="noopener noreferrer">
                             {{ website_contact.svg|safe }}
                             <span>{{ website_contact.contact }}</span>
                         </a>
