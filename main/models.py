@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.templatetags.static import static
 from django.utils.functional import cached_property
 from django.utils import timezone
+from website.models import AbstractCacheAllModel
 
 
 class User(AbstractUser):
@@ -44,7 +45,7 @@ class Tag(AbstractNamedModel, ValidatedModelMixin):
         return f'tag--{self.slug}'
     
 
-class AbstractSkill(AbstractNamedModel, ValidatedModelMixin):
+class AbstractSkill(AbstractNamedModel, AbstractCacheAllModel, ValidatedModelMixin):
     began_learning = models.DateField(default=timezone.localdate)
     icon = models.TextField()
 
@@ -88,7 +89,7 @@ class Skill(AbstractSkill):
     static_dir = 'skills'
 
 
-class Project(AbstractNamedModel, ValidatedModelMixin):
+class Project(AbstractNamedModel, AbstractCacheAllModel, ValidatedModelMixin):
     description = models.TextField()
     icon = models.TextField()
     url = models.URLField(blank=True, null=True)
