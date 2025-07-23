@@ -20,6 +20,10 @@ html {
     background-color: var(--color-base);
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 section, header {
     & > :last-child {
         margin-bottom: 0;
@@ -60,7 +64,7 @@ main {
 
 header {
     margin-inline: auto;
-    width: clamp(340px, 70%, 1200px);
+    width: clamp(var(--layout-width-min), 70%, 1200px);
 
     .header__header {
         display: flex;  
@@ -76,7 +80,7 @@ header {
 
 section {
     margin-inline: auto;
-    width: clamp(340px, 70%, 1200px);
+    width: clamp(var(--layout-width-min), 70%, 1200px);
 }
 
 img {
@@ -85,7 +89,7 @@ img {
 }
 
 hr {
-    width: clamp(340px, 70%, 1200px);
+    width: clamp(var(--layout-width-min), 70%, 1200px);
     margin-inline: auto;
     border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent 90%);
 }
@@ -97,7 +101,7 @@ hr {
 
     & > div {
         flex: 1;
-        min-width: 340px;
+        min-width: var(--layout-width-min);
     }
 
     img {
@@ -147,7 +151,7 @@ hr {
     justify-content: center;
 
     & > .container {
-        width: clamp(340px, 50%, 1200px);
+        width: clamp(var(--layout-width-min), 50%, 1200px);
     }
 }
 

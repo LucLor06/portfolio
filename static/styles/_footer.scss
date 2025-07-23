@@ -38,7 +38,7 @@ footer {
 
 .footer__content {
     margin-inline: auto;
-    width: clamp(340px, 70%, 1200px);
+    width: clamp(var(--layout-width-min), 70%, 1200px);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -51,7 +51,7 @@ footer {
 
 .footer__bottom {
     margin-inline: auto;
-    width: clamp(340px, 70%, 1200px);
+    width: clamp(var(--layout-width-min), 70%, 1200px);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
