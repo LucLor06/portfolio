@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ website.name }}{% endblock title %}</title>
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{% static 'logo-128.png' %}">
+    <meta property="og:image" content="{% static 'logo.png' %}">
     {% block embeds %}
     <meta property="og:title" content="{{ website.name }}">
     <meta property="og:description" content="{{ website.description }}">
     {% endblock embeds %}
-    <meta name="theme-color" content="{{ website.text_color }}">
-    <meta name="manifest" content='/static/manifest.json'>
+    <meta name="theme-color" content="#0A0A0A">
+    <meta name="manifest" content="{% static 'manifest.json' %}"">
     <link rel="icon" type="image/x-icon" href="{% static 'logo.ico' %}">
     {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static '/styles/styles.scss' %}">
@@ -34,37 +34,6 @@
             {% block content %}
             {% endblock content %}
         </main>
-        {% if messages %}
-        <div id="messages" class="messages" hx-swap-oob="outerHTML">
-            {% for message in messages %}
-            {% if 'modal' not in message.tags %}
-            <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                <p>{{ message }}</p>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
-        <div class="messages--modals">
-            {% for message in messages %}
-            {% if 'modal' in message.tags %}
-            <div class="modal__wrapper">
-                <div class="modal" _="install Modal">
-                    <div class="modal__content">
-                        <h3>{{ message.level_tag|title }}</h3>
-                        <p>{{ message }}</p>
-                    </div>
-                    <div class="modal__actions">
-                        <button _="
-                        on click
-                            add .hidden to the closest .modal__wrapper
-                        end">Done</button>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
-        {% endif %}
         <footer>
             <div class="footer__content">
                 <div>
