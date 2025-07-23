@@ -5,12 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = environment_variables.DJANGO_SECRET_KEY
 
-DEBUG = True
+DEBUG = environment_variables.DJANGO_DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', environment_variables.PUBLIC_FACING_ADDRESS]
 
 AUTH_USER_MODEL = 'main.User'
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
