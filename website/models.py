@@ -5,7 +5,7 @@ from django.core.cache import cache
 
 class CacheAllManager(models.Manager):
     def all_cached(self, *args, prefetch=[], **kwargs):
-        return cache.get_or_set(f'{self.model.all_cache_key()}', lambda: list(self.prefetch_related(*prefetch).all(*args, **kwargs)), None)
+        return cache.get_or_set(f'{self.model.all_cache_key()}', lambda: list(self.prefetch_related(*prefetch).all(*args, **kwargs)), 604800)
 
 
 class AbstractCacheAllModel(models.Model):
