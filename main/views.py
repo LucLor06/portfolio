@@ -4,11 +4,11 @@ from .models import Language, Technology, Tool, Skill, Project
 
 def home(request: HttpRequest):
     context = {
-        'languages': Language.objects.all(),
-        'technologies': Technology.objects.all(),
-        'tools': Tool.objects.all(),
-        'skills': Skill.objects.all(),
-        'projects': Project.objects.all(),
+        'languages': Language.objects.all_cached(prefetch=['tags']),
+        'technologies': Technology.objects.all_cached(prefetch=['tags']),
+        'tools': Tool.objects.all_cached(prefetch=['tags']),
+        'skills': Skill.objects.all_cached(prefetch=['tags']),
+        'projects': Project.objects.all_cached(),
     }
     return render(request, 'home.html', context)
 
