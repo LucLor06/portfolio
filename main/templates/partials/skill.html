@@ -3,6 +3,7 @@
     <div class="tooltip">
         <p><b>{{ skill.name }}</b> ({{ skill.display_years_of_experience }} years)</p>
         {% if skill.tags.exists %}
+        <hr>
         <div class="tags">
             {% for tag in skill.tags.all %}
             <div class="tag {{ tag.css_class }}">

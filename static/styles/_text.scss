@@ -170,6 +170,10 @@ span {
     flex-direction: column;
     gap: .5rem;
 
+    hr {
+        width: 100%;
+    }
+
     &.tooltip--bottom {
         bottom: unset;
         top: 100%;
